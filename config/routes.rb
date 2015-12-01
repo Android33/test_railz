@@ -2,6 +2,18 @@ Rails.application.routes.draw do
   devise_for :users
   get 'home/index'
 
+  resources :sessions, only: [] do
+    collection do
+      get '/', to: 'sessions#create'
+    end
+  end
+
+  resources :registrations, only: [] do
+    collection do
+      get '/', to: 'registrations#create'
+    end
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
